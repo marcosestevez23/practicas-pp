@@ -1,17 +1,13 @@
-let otro ori des =
-  match (ori, des) with
-    (1, 2) | (2, 1) -> 3
-  | (1, 3) | (3, 1) -> 2
-  | _ -> 1
+let otro ori des = 6 - ori - des 
 
 let mueve = function
-  | (1,2) -> "1-->2 3\n"
-  | (1,3) -> "1-->2-->3\n"
+    (1,2) -> "1-->2 3\n"
+  | (1,3) -> "1---2-->3\n"
   | (2,3) -> "1 2-->3\n"
   | (2,1) -> "1<--2 3\n"
-  | (3,1) -> "1<--2<--3\n" 
-  | (3,2) -> "1 2<--3\n" 
-  |_ -> invalid_arg "mueve"
+  | (3,1) -> "1<--2---3\n"
+  | (3,2) -> "1 2<--3\n"
+  | _ -> invalid_arg "mueve"
 
 let rec hanoi n ori des =
   (* n número de discos, 1 <= ori <= 3, 1 <= dest <= 3, ori <> des *)
